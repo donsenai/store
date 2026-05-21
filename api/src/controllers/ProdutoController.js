@@ -53,7 +53,7 @@ class ProdutoController {
                 preco,
                 descricao
             };
-            const updatedProduct = await Produto.findByIdAndUpdate(id, updatedData, { new: true });
+            const updatedProduct = await Produto.findByIdAndUpdate(id, updatedData, { returnDocument: 'after' });
             if (!updatedProduct) {
                 return res.status(404).json({ message: 'Produto não encontrado' });
             }
