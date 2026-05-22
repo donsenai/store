@@ -5,9 +5,6 @@ require('dotenv').config();
 const app = express();
 app.use(cors());
 
-const startSwagger = require('./startup/swagger');
-startSwagger(app);
-
 require('./startup/db')(); // Conectar banco
 require('./startup/router')(app); // Rodar o router
 

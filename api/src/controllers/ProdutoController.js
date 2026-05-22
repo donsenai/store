@@ -3,14 +3,16 @@ const Produto = require('../models/Produto');
 class ProdutoController {
     static async create(req, res) {
         try {
-            const { nome, preco, descricao } = req.body;
-            if (!nome || !preco || !descricao) {
-                return res.status(400).json({ message: "Dados inválidos." });
+            const { nome, preco, quantidade, descricao } = req.body;
+            
+            if (!nome || !preco || quantidade === undefined || !descricao) {
+                return res.status(400).json({ message: "Dados inválidos. Certifique-se de enviar nome, preco, quantidade e descricao." });
             }
 
             const produtoData = {
                 nome,
                 preco,
+                quantidade,
                 descricao
             };
 
@@ -47,13 +49,17 @@ class ProdutoController {
     static async update(req, res) {
         try {
             const { id } = req.params;
-            const { nome, preco, descricao } = req.body;
+            const { nome, preco, quantidade, descricao } = req.body;
+            
             const updatedData = {
                 nome,
                 preco,
+                quantidade,
                 descricao
             };
-            const updatedProduct = await Produto.findByIdAndUpdate(id, updatedData, { returnDocument: 'after' });
+            
+            const updatedProduct = await Produto.findByIdAndUpdate(id, updatedData, { new: true });
+            
             if (!updatedProduct) {
                 return res.status(404).json({ message: 'Produto não encontrado' });
             }
