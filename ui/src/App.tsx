@@ -5,6 +5,7 @@ import ListaProdutos from './pages/ListaProdutos';
 import NavBar from './components/navBar';
 import InserirProduto from './pages/InserirProduto';
 import EditarProduto from './pages/EditarProduto';
+import Compras from './pages/Compras';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path='/produtos' element={<ListaProdutos />} />
         <Route path='/inserir-produto' element={<InserirProduto />} />
         <Route path='/editar-produto/:id' element={<EditarProduto />} />
+        <Route path='/compras/' element={<Compras />} />
       </Routes>
     </>
   )
