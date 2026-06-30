@@ -7,6 +7,7 @@ interface Produto {
     _id: string;
     nome: string;
     preco: number;
+    quantidade: number;
     descricao: string;
     __v?: number;
 }
@@ -79,6 +80,12 @@ export default function ListaProdutos() {
                                             <span className="text-muted d-block small" style={{ fontSize: '0.75rem', transform: 'translateY(3px)' }}>PREÇO</span>
                                             <span className="text-success fw-bold" style={{ fontSize: '1.25rem' }}>
                                                 R$ {produto.preco}
+                                            </span>
+                                        </div>
+                                        <div className="text-center">
+                                            <span className="text-muted d-block small" style={{ fontSize: '0.75rem', transform: 'translateY(3px)' }}>QUANTIDADE</span>
+                                            <span style={{ fontSize: '1.25rem'}}>
+                                                {produto.quantidade}
                                             </span>
                                         </div>
                                         <Link to={`/editar-produto/${produto._id}`} className="btn btn-primary btn-sm px-3" style={{ borderRadius: '6px' }}>

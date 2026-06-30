@@ -19,7 +19,7 @@ export default function NavBar() {
                             <Link className={styles.navLink} to="/produtos/">Produtos</Link>
                         </li>
                         <li className={styles.navItem}>
-                            <Link className={styles.navLink} to="/compras/">Vender</Link>
+                            <Link className={styles.navLink} to="/compras/">Compras</Link>
                         </li>
                     </ul>
                 </div>

@@ -1,0 +1,59 @@
+name: CI/CD Store
+
+on:
+    push:
+        branches: ["master"]
+    pull_request:
+        branches: ["master"]
+
+jobs:
+    testando-frontend:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: ./ui
+        steps:
+            - name: Baixando o código
+              uses: actions/checkout@v4
+
+            - name: Configurando Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+
+            - name: Instalando dependências do Front
+              run: npm ci
+
+            - name: Rodando o Lint do Front
+              run: npm run lint --if-present
+            
+            - name: Rodando Testes do Front
+              run: npm test --if-present
+
+            - name: Testando o Build do Front
+              run: npm run build
+    
+
+    testando-backend:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: ./api
+        
+        steps:
+            - name: Baixando o código
+              uses: actions/checkout@v4
+
+            - name: Configurando Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+            
+            - name: Instalando dependências do Backend
+              run: npm ci
+
+            - name: Rodando Testes do Back
+              run: npm test --if-present
+
+            - name: Rodando Lint do Back
+              run: npm run lint --if-present

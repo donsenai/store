@@ -6,6 +6,9 @@ import NavBar from './components/navBar';
 import InserirProduto from './pages/InserirProduto';
 import EditarProduto from './pages/EditarProduto';
 import Compras from './pages/Compras';
+import InserirCompra from './pages/InserirCompra';
+import InserirCliente from './pages/InserirCliente';
+import Clientes from './pages/Clientes';
 
 function App() {
 
@@ -18,6 +21,9 @@ function App() {
         <Route path='/inserir-produto' element={<InserirProduto />} />
         <Route path='/editar-produto/:id' element={<EditarProduto />} />
         <Route path='/compras/' element={<Compras />} />
+        <Route path='/inserir-compra/' element={<InserirCompra />} />
+        <Route path='/clientes/' element={<Clientes />} />
+        <Route path='/inserir-cliente/' element={<InserirCliente />} />
       </Routes>
     </>
   )
