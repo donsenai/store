@@ -38,9 +38,10 @@ export default function Compras() {
         buscarCompras();
     }, []);
 
-    const renderizarNome = (dado: any) => {
+    const renderizarNome = (dado: Cliente | Produto | string) => {
         if (!dado) return "Não informado";
-        return dado.nome ? dado.nome : dado; 
+        if (typeof dado === "string") return dado;
+        return dado.nome ? dado.nome : "Não informado"; 
     };
 
     const formatarData = (dataIso?: string) => {

@@ -34,6 +34,7 @@ export default function InserirCompra() {
                 setClientes(listaClientes);
             } catch (error) {
                 alert("Erro ao carregar a lista de produtos.");
+                console.log(error)
                 navigate("/");
             }
         };

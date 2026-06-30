@@ -32,7 +32,7 @@ export default function ListaProdutos() {
         carregarProdutos();
     }, []);
 
-    const excluir = async (id: any) => {
+    const excluir = async (id: string) => {
         await axios.delete(`http://localhost:3000/produto/${id}`)
             .then(() => {
                 window.location.reload();

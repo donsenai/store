@@ -41,6 +41,7 @@ export default function EditarProduto() {
                 setCarregando(false);
             } catch (error) {
                 alert("Erro ao carregar os dados do produto.");
+                console.log(error)
                 navigate("/");
             }
         };
